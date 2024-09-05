@@ -1,0 +1,530 @@
+HTML
+ <div class="myweb">
+        <h1 class="sk-11"><span class="sk12">My</span> W<span class="sk12">ebsi</span>tes</h1>
+        <p class="di-11"></p>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <div class="slide2"></div>
+                    <div onclick="showAlert('I made a random design for poco,  just sat down one day and became creative with my imaginations. <br></p>')">
+                        <img src="images/myweb/image1.jpg" alt="Image 1">
+                    </div>
+                </div>
+                  <div class="slide">
+                    <div class="slide2"></div>
+                    <div onclick="showAlert('I made a random design for poco,  just sat down one day and became creative with my imaginations. <br></p>')">
+                        <img src="images/myweb/image1.jpg" alt="Image 1">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide2"></div>
+                    <div onclick="showAlert('Image 3 Description')">
+                        <img src="images/myweb/image3.jpg" alt="Image 3">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide2"></div>
+                    <div onclick="showAlert('Image 4 Description')">
+                        <img src="images/myweb/image4.jpg" alt="Image 4">
+                    </div>
+                </div>
+                <div class="slide book-now">
+                    <h3 id="book1">Ready to book?</h3>
+                    <button id="but" class="action-btn book" onclick="showAlert('Thank you for your interest! Please click Visit to continue.')">Book Now</button>
+                </div>
+            </div>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+    </div>
+    <p class="di-11"></p>
+
+    CSS
+    /*myweb*/
+.myweb h1{
+    text-align: center;
+}
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Slider container styling */
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    border-radius: 10px;
+}
+#book1{
+  font-size: 30px;
+}
+#but{
+   font-size: 20px;
+}
+
+/* Slider styling */
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 80%;
+    margin: 10px;
+}
+
+/* Slide styling */
+.slide {
+    min-width: 100%;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* Button styling */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Book Now specific styling */
+.book-now {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.book-now h3 {
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+.slide2{
+    margin: 3.5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .prev, .next {
+        padding: 8px;
+    }
+
+    .action-btn {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prev, .next {
+        padding: 5px;
+    }
+
+    .action-btn {
+        padding: 6px 10px;
+    }
+}
+/* Slider styling */
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 80%;
+    margin: 10px;
+}
+
+/* Slide styling */
+.slide {
+    min-width: 100%;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+
+/* Button styling */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Book Now specific styling */
+.book-now {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.book-now h3 {
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+.slide2{
+    margin: 3.5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .prev, .next {
+        padding: 8px;
+    }
+
+    .action-btn {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prev, .next {
+        padding: 5px;
+    }
+
+    .action-btn {
+        padding: 6px 10px;
+    }
+}
+/* Custom alert styling */
+/* Custom alert styling */
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    text-align: center;
+    width: 85%;
+    max-width: 450px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.custom-alert p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+/* Padding between highlighted text and other content */
+.highlighted-text {
+    color: #ff6f61; /* Choose your preferred color */
+    font-weight: bold;
+    padding-right: 5px; /* Add padding to the right side */
+}
+
+/* Button styling */
+.visit-btn, .close-btn {
+    padding: 12px 25px;
+    margin: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.visit-btn {
+   border: 1px #0056b3 solid;
+    color: white;
+    background-color: #0c47b7;
+}
+
+.visit-btn:hover {
+   background-color: #ffffff;
+     color: #0c47b7;
+    transform: scale(1.05);
+}
+
+.close-btn {
+    border: 1px #0056b3 solid;
+    color: #0c47b7;
+    background-color: white;
+}
+
+
+
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+} 
+
+.btn-s{
+    font-size: 20px;
+}
+/* Highlighted text styling */
+.highlighted-text {
+    color: var(--main-color); /* Choose your preferred color */
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+.highlighted-text2 {
+    color: gray; /* Choose your preferred color */
+    text-transform: capitalize;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    
+    height: 20px;
+}
+.highlighted-text3 {
+    color: #000000; /* Choose your preferred color */
+   
+}
+.highlighted-text4 {
+    color: #fff; 
+   text-align: center;
+   text-transform: capitalize;
+   font-size: 17px;
+   box-sizing: border-box;
+   width: 10px;
+   height: 10px;
+   padding: 20px;
+   border:  2.0px#0f72dc solid;
+   border-radius: 10px;
+   background: #0056b3;
+}
+.highlighted-text4:hover{
+    background: #fff;
+    color: #0056b3; 
+}
+
+JavaScript
+function showAlert(description) {
+    // Create the alert container
+    const alertContainer = document.createElement('div');
+    alertContainer.classList.add('custom-alert');
+
+    // Create the alert content
+    const alertContent = `
+        <p>${description}</p>
+        <button class="visit-btn" onclick="visitWebsite()">Visit</button>
+        <button class="close-btn" onclick="closeAlert()">Close</button>
+    `;
+
+    alertContainer.innerHTML = alertContent;
+
+    // Append the alert to the body
+    document.body.appendChild(alertContainer);
+
+    // Add overlay
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+}
+function showAlert(description) {
+    // Create the alert container
+    const alertContainer = document.createElement('div');
+    alertContainer.classList.add('custom-alert');
+
+    // Create the alert content
+    const alertContent = `
+        <p>${description}</p>
+        <button class="visit-btn" onclick="visitWebsite()">Visit</button>
+        <button class="close-btn" onclick="closeAlert()">Close</button>
+    `;
+
+    alertContainer.innerHTML = alertContent;
+
+    // Append the alert to the body
+    document.body.appendChild(alertContainer);
+
+    // Add overlay
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+}
+
+function closeAlert() {
+    const alert = document.querySelector('.custom-alert');
+    const overlay = document.querySelector('.overlay');
+    if (alert) alert.remove();
+    if (overlay) overlay.remove();
+}
+
+function visitWebsite() {
+    // Redirect to the website or desired URL
+    window.location.href = '#'; // Replace with the actual URL
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    let currentIndex = 0;
+
+    function updateSlidePosition() {
+        // Reset animation
+        slider.classList.remove('slide-transition');
+        // Trigger reflow to restart the animation
+        void slider.offsetWidth;
+        // Add animation class
+        slider.classList.add('slide-transition');
+
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function showPrevSlide() {
+        currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+        updateSlidePosition();
+    }
+
+    function showNextSlide() {
+        // Prevent moving past the "Book Now" slide
+        if (currentIndex < slides.length - 1) {
+            currentIndex++;
+            updateSlidePosition();
+        }
+    }
+
+    prevButton.addEventListener('click', showPrevSlide);
+    nextButton.addEventListener('click', showNextSlide);
+
+    // Optional auto-slide, stopping at the "Book Now" slide
+    setInterval(function () {
+        if (currentIndex < slides.length - 1) {
+            showNextSlide();
+        }
+    }, none); // Change 5000 to your desired interval in milliseconds
+});
+
+function showAlert(description) {
+// Create the alert container 
+const alertContainer = document.createElement('div');
+alertContainer.classList.add('custom-alert');
+
+// Create the alert content with "I made" colored
+const alertContent = `
+    <p>${description.replace('I made a random design for poco,  just sat down one day and became creative with my imaginations. ', '<span class="highlighted-text4">victor - poco</span><p><br><p><span class="highlighted-text">I made a random design for poco,  just sat down one day and became creative with my imaginations.</span><br><p><span class="highlighted-text3">Skills: </span> <span class="highlighted-text2">HTML • Css • javascript • Web Design </span>')}</p>
+    
+ 
+
+    <button class="visit-btn" onclick="visitWebsite()">Visit</button>
+    <button class="close-btn" onclick="closeAlert()">Close</button>
+`;
+
+alertContainer.innerHTML = alertContent;
+
+// Append the alert to the body
+document.body.appendChild(alertContainer);
+
+// Add overlay
+const overlay = document.createElement('div');
+overlay.classList.add('overlay');
+document.body.appendChild(overlay);
+}
+
+function closeAlert() {
+const alert = document.querySelector('.custom-alert');
+const overlay = document.querySelector('.overlay');
+if (alert) alert.remove();
+if (overlay) overlay.remove();
+}
+
+function visitWebsite() {
+// Redirect to the website or desired URL
+window.location.href = '#'; // Replace with the actual URL
+}

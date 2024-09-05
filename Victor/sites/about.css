@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1{
+    font-size: 30px;
+}
+
+/* Certificates Section */
+.certificates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.certificate {
+    width: 300px;
+    background-color: #e6efff;
+    border-radius: 8px;
+    box-shadow: 0 8px 12px #2c7fdf;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(0.9);
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+}
+
+.certificate img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.certificate .cert-text {
+    padding: 15px;
+    text-align: center;
+}
+
+.certificate .cert-text h3 {
+    font-size: 1.1rem;
+    color: #111b27;
+    margin-bottom: 10px;
+}
+
+.certificate .cert-text p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 17px;
+}
+
+.certificate:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px #27476b;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .about-text h1 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .certificate {
+        width: 90%;
+    }
+    h1{
+        font-size: 20px;
+        text-align: center;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .about-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .about-text p {
+        font-size: 1.1rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .certificate {
+        width: 90%;
+    }
+    
+ 
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.cert-text .a-h{
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 0.4rem 2.0rem;
+    margin: 8px;
+    width: 20%;
+    background: #2c7fdf;
+    border: 2px solid #2c7fdf;
+    border-radius: 5px;
+  
+}
+.cert-text .a-h:hover{
+    color: #2c7fdf;
+    background: #fff;
+}
+.cer{
+    font-size: 35px;
+    text-align: center;
+    padding-top: 20px;
+}
+.sp-cer{
+    color: #2c7fdf;
+}
+.cer3{
+    font-size: 40px;
+    text-align: left;
+}
+
+p{
+    font-size: 17px;
+    color: #777;
+    font-family: sans-serif;
+}
+
+

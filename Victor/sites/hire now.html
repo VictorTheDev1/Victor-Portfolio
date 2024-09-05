@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <title>Hire Now</title>
+</head>
+<body>
+    <section class="contact" id="contact">  </section>
+      
+    <section class="contact" id="contact">  
+        <h1 class="sk-11">C<span class="sk12">ont</span>act <span>Me</span></h1>
+        <p class="di-11"></p>
+        <p class="di-11"></p>
+        <form class="row g-3" action="https://formsubmit.co/moradeyovictor@gmail.com" method="POST" id="contactForm">   
+            <div class="container">
+                <div class="fot"></div> 
+                <div class="loading-bar" id="loadingBar"></div> <!-- Loading Bar -->
+                <input type="text" placeholder="Full Name" required name="Name"> 
+                <input type="email" placeholder="Email Address" required name="email"> 
+                <input type="number" placeholder="Phone Number" required name="number"> 
+                <textarea placeholder="Purpose Of Contacting me" required name="message"></textarea>
+    
+                <input type="hidden" name="_captcha" value="false"> 
+              
+                
+                <div class="btn-box">
+                    <button type="submit" class="submit">Send Message</button>
+                </div>
+            </div>
+        </form>
+        <div id="alertSuccess" class="alert alert-success">Message sent successfully! <br> We will get back to you shortly</div>
+        <div id="alertFailure" class="alert alert-failure">Message not sent. Please try again.</div>
+    </section>
+</body>
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const loadingBar = document.getElementById('loadingBar');
+
+    // Show loading bar
+    loadingBar.style.display = 'block';
+    loadingBar.style.width = '0';
+
+    // Gradually increase loading bar width to 90%
+    let loadingProgress = 0;
+    const loadingInterval = setInterval(() => {
+        loadingProgress += 2; // Increase this value to make the loading bar fill faster
+        if (loadingProgress <= 90) {
+            loadingBar.style.width = `${loadingProgress}%`;
+        } else {
+            clearInterval(loadingInterval); // Stop the interval once 90% is reached
+        }
+    }, 100); // Adjust the interval timing as necessary
+
+    fetch(form.action, {
+        method: form.method,
+        body: formData,
+    })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('alertSuccess').style.display = 'block';
+                document.getElementById('alertFailure').style.display = 'none';
+                form.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        })
+        .catch(error => {
+            document.getElementById('alertFailure').style.display = 'block';
+            document.getElementById('alertSuccess').style.display = 'none';
+        })
+        .finally(() => {
+            // Complete the loading bar to 100% after form submission
+            loadingBar.style.width = '100%';
+
+            // Hide the loading bar after a short delay
+            setTimeout(() => {
+                loadingBar.style.display = 'none';
+                loadingBar.style.width = '0';
+            }, 500);
+        });
+});
+
+</script>
+</html>

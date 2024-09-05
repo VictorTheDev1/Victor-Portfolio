@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor's Portfolio</title>
+    <style>
+   /* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Your Chosen Font', sans-serif; /* Update with your preferred font */
+    background-color: #000; /* Background color for the whole page */
+    color: #fff;
+}
+
+/* Skills Section */
+#skills {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #000; /* Black background */
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+#skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Your Chosen Font', sans-serif;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.skill-item img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.skill-item p {
+    font-size: 1rem;
+    margin: 0;
+    font-family: 'Your Chosen Font', sans-serif;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+}
+
+/* Optional: Add a space background */
+#skills {
+    background: url('path/to/space-background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#skills:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Add a dark overlay */
+    z-index: -1;
+}
+
+   </style>
+</head>
+<body>
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-item">
+                <img src="path/to/html-icon.png" alt="HTML">
+                <p>HTML</p>
+            </div>
+            <div class="skill-item">
+                <img src="path/to/css-icon.png" alt="CSS">
+                <p>CSS</p>
+            </div>
+            <div class="skill-item">
+                <img src="path/to/javascript-icon.png" alt="JavaScript">
+                <p>JavaScript</p>
+            </div>
+            <!-- Repeat the block below for each skill -->
+            <div class="skill-item">
+                <img src="path/to/react-icon.png" alt="React">
+                <p>React</p>
+            </div>
+            <!-- Add more skill items here -->
+        </div>
+    </section>
+</body>
+<script>
+document.querySelectorAll('.skill-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        item.classList.add('animate');
+    });
+    item.addEventListener('mouseleave', () => {
+        item.classList.remove('animate');
+    });
+});
+</script>
+</html>
