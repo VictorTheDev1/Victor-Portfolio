@@ -754,7 +754,7 @@ span{
   opacity: 1;
   }
 .skill-bar.html .skill-per{
-    width: 90%;
+    width: 94%;
 }
 .skill-bar.css .skill-per{
     width: 80%;
@@ -764,6 +764,9 @@ span{
 }
 .skill-bar.python .skill-per{
     width: 65%;
+}
+.skill-bar.Angular .skill-per{
+    width: 71%;
 }
 .skill-bar.sql .skill-per{
     width: 59%;
@@ -1006,7 +1009,21 @@ span{
 }
 
 /*responsive web*/
-l
+@media (max-width: 1200px) {
+   
+    .container {
+       width: 290px;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px var(--main-color);
+    }
+    
+}
 @media (max-width: 1072px) {
     .container {
         max-width: 600px;
@@ -1163,6 +1180,9 @@ l
         width: 59vw;
         margin-bottom: 7rem;
     }
+    html{
+        font-size: 55%;
+    }
 }
 @media (max-width: 617px) {
    html{
@@ -1170,6 +1190,9 @@ l
    }
    .header img{
     width: 20vw;
+}
+html{
+    font-size: 55%;
 }
 .container {
     max-width: 400px;
