@@ -1,71 +1,173 @@
-let menu = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+/* -----------------------------------------------------
+    CONTACT FORM (FormSubmit with loading animation)
+------------------------------------------------------ */
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();  
 
-menu.onclick = () => {
-    menu.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-}
+  const submitBtn = document.getElementById("submitBtn");
+  const btnText = submitBtn.querySelector(".btn-text");
+  const loader = submitBtn.querySelector(".loader");
+  const status = document.getElementById("formStatus");
 
-window.onscroll = () => {
-    menu.classList.remove('bx-x'); // Always remove the class on scroll
-    navbar.classList.remove('active'); // Always remove the active class on scroll
-}
+  // UI: loading state
+  loader.style.display = "inline-block";
+  btnText.textContent = "Sending...";
+  submitBtn.disabled = true;
+  status.textContent = "";
 
-const typed = new Typed('.multiple-text', {
-    strings: ['Front-End Developer', 'Graphic Designer', 'Tech Enthusiast', 'Web Designer'],
-    typeSpeed: 200, 
-    backSpeed: 80, 
-    backDelay: 1200, 
-    loop: true,
+  try {
+    const formData = new FormData(this);
+
+    const response = await fetch(this.action, {
+      method: "POST",
+      body: formData
+    });
+
+    if (response.ok) {
+      status.style.color = "rgb(0, 200, 120)";
+      status.textContent = "Message sent successfully!";
+      this.reset();
+    } else {
+      throw new Error("Failed");
+    }
+  } catch (err) {
+    status.style.color = "rgb(255, 90, 90)";
+    status.textContent = "Message failed to send. Try again.";
+  }
+
+  loader.style.display = "none";
+  btnText.textContent = "Send message";
+  submitBtn.disabled = false;
 });
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); 
+/* CLEAR FORM BUTTON */
+document.getElementById("clearBtn").addEventListener("click", () => {
+  document.getElementById("contactForm").reset();
+  document.getElementById("formStatus").textContent = "";
+});
 
-    const form = event.target;
-    const formData = new FormData(form);
-    const loadingBar = document.getElementById('loadingBar');
 
-    // Show loading bar
-    loadingBar.style.display = 'block';
-    loadingBar.style.width = '0';
+/* -----------------------------------------------------
+    TYPING TEXT (Hero Section – rotating phrases)
+------------------------------------------------------ */
+const phrases = [
+  "Build Something Legendary",
+  "Create Premium Designs",
+  "Bring Ideas To Life",
+  "Make Digital Experiences Stand Out"
+];
 
-    // Gradually increase loading bar width to 90%
-    let loadingProgress = 0;
-    const loadingInterval = setInterval(() => {
-        loadingProgress += 1; // Increase this value to make the loading bar fill faster
-        if (loadingProgress <= 70) {
-            loadingBar.style.width = `${loadingProgress}%`;
-        } else {
-            clearInterval(loadingInterval); 
-        }
-    }, 100); 
+const typingEl = document.querySelector(".typing-text");
+let phraseIndex = 0;
 
-    fetch(form.action, {
-        method: form.method,
-        body: formData,
-    })
-        .then(response => {
-            if (response.ok) {
-                document.getElementById('alertSuccess').style.display = 'block';
-                document.getElementById('alertFailure').style.display = 'none';
-                form.reset();
-            } else {
-                throw new Error('Form submission failed');
-            }
-        })
-        .catch(error => {
-            document.getElementById('alertFailure').style.display = 'block';
-            document.getElementById('alertSuccess').style.display = 'none';
-        })
-        .finally(() => {
-           
-            loadingBar.style.width = '100%';
+function typePhrase() {
+  typingEl.style.width = "0";
+  typingEl.textContent = phrases[phraseIndex];
 
-            
-            setTimeout(() => {
-                loadingBar.style.display = 'none';
-                loadingBar.style.width = '0';
-            }, 500);
-        });
+  // Restart animation
+  typingEl.style.animation = "none";
+  void typingEl.offsetWidth; 
+  typingEl.style.animation = "typing 3s steps(30) forwards, blink .7s infinite";
+
+  phraseIndex = (phraseIndex + 1) % phrases.length;
+}
+
+typePhrase();
+setInterval(typePhrase, 4000);
+
+
+/* -----------------------------------------------------
+    YEAR AUTO UPDATE
+------------------------------------------------------ */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+
+/* -----------------------------------------------------
+    MOBILE MENU TOGGLE
+------------------------------------------------------ */
+const hambtn = document.getElementById("hambtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+hambtn.addEventListener("click", () => {
+  if (mobileMenu.style.display === "flex") {
+    mobileMenu.style.display = "none";
+  } else {
+    mobileMenu.style.display = "flex";
+  }
+});
+
+/* -----------------------------------------------------
+    SMOOTH SCROLL FOR NAV LINKS
+------------------------------------------------------ */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = link.getAttribute('href');
+
+    if (target.length > 1) {
+      e.preventDefault();
+      const el = document.querySelector(target);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Auto-close mobile menu
+    if (window.innerWidth <= 640) {
+      mobileMenu.style.display = 'none';
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
+});
+
+
+/* -----------------------------------------------------
+    TYPEWRITER #2 (small text somewhere else)
+------------------------------------------------------ */
+(function(){
+  const phrases = [
+    'premium interfaces',
+    'fast & accessible sites',
+    'delightful animations',
+    'clean UX'
+  ];
+
+  const el = document.getElementById('typed');
+  let pi = 0, ch = 0, forward = true;
+
+  function step() {
+    const p = phrases[pi];
+
+    if (forward) {
+      ch++;
+      el.textContent = p.slice(0, ch);
+      if (ch === p.length) {
+        forward = false;
+        setTimeout(step, 1000);
+        return;
+      }
+    } else {
+      ch--;
+      el.textContent = p.slice(0, ch);
+      if (ch === 0) {
+        forward = true;
+        pi = (pi + 1) % phrases.length;
+      }
+    }
+    setTimeout(step, forward ? 60 : 28);
+  }
+
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!(mq && mq.matches)) step();
+  else el.textContent = phrases[0];
+})();
+
+
+/* -----------------------------------------------------
+    PROJECT LINKS FALLBACK
+------------------------------------------------------ */
+document.querySelectorAll('.proj-links a').forEach(a => {
+  if (a.getAttribute('href') === '#') {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Replace this with your project link (Live demo or GitHub).');
+    });
+  }
 });
